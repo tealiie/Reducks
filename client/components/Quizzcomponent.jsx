@@ -6,15 +6,17 @@ import Newquestion from './Newquestion.jsx'
 
 export default React.createClass({
   render() {
+    let answer = <Answer showAnswer={this.props.showAnswer} />
+
+    if (this.props.trivia.showingAnswer) {
+      answer = <Answer showAnswer={this.props.showAnswer} answer={this.props.trivia.answer}/>
+    }
+
     return (
       <div className="quizzWrapper">
-        {this.props.trivia.map((trivia, i) => {
-          return <Question key={i} question={trivia.question}/>
-        })}
+        <Question question={this.props.trivia.question} />
         <Timer/>
-          {this.props.trivia.map((trivia, i) => {
-            return <Answer key={i} answer={trivia.correct_answer}/>
-          })}
+        {answer}
         <Newquestion/>
       </div>
     )

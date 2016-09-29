@@ -6,7 +6,9 @@ import Quizzcomponent from './Quizzcomponent.jsx'
 export default React.createClass({
   getInitialState () {
     return {
-      trivia: []
+      question: "",
+      answer: "",
+      showingAnswer: false
     }
   },
 
@@ -18,9 +20,20 @@ export default React.createClass({
     quizapi.getQ(this.renderQ)
   },
 
-  renderQ(err, trivia) {
+  showAnswer () {
     this.setState({
-      trivia: trivia.results
+      question: this.state.question,
+      answer: this.state.answer,
+      showingAnswer: true
+    })
+  },
+
+  renderQ(err, trivia) {
+    console.log(trivia)
+    this.setState({
+      question: trivia.question,
+      answer: trivia.answer,
+      showingAnswer: false
     })
   },
 
@@ -28,7 +41,7 @@ export default React.createClass({
     return (
       <div className="mainWrapper">
         <Header/>
-        <Quizzcomponent trivia={this.state.trivia}/>
+        <Quizzcomponent trivia={this.state} showAnswer={this.showAnswer} />
       </div>
     )
   }
