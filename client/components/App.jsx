@@ -1,4 +1,5 @@
 import React from 'react'
+import quizapi from './quizapi'
 
 export default React.createClass({
   render() {
