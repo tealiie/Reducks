@@ -5,6 +5,7 @@ export default React.createClass({
     return(
       <div className="questionWrapper">
         <p className="text-center"> Question </p>
+        <p> Question </p>
       </div>
     )
   }

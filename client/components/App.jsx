@@ -1,4 +1,5 @@
 import React from 'react'
+import quizapi from './quizapi'
 import Header from './Header.jsx'
 import Quizzcomponent from './Quizzcomponent.jsx'
 
