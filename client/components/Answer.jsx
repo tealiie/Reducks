@@ -1,11 +1,13 @@
 import React from 'react'
 
 export default React.createClass({
-  render(){
-    return(
-      <div className="answerWrapper">
-        <p className="text-center"> answer </p>
-        <p> answer </p>
+  render() {
+    return (
+      <div className="answerWrapper text-center">
+        <button className="btn btn-primary"> reveal answer </button>
+        <p className="text-center">
+          {this.props.answer}
+        </p>
       </div>
     )
   }

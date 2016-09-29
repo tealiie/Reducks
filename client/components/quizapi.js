@@ -7,7 +7,7 @@ export default {
 function getQ (cb) {
   let data = []
   request
-    .get('http://www.opentdb.com/api.php?amount=1')
+    .get('https://crossorigin.me/http://www.opentdb.com/api.php?amount=1&type=boolean')
     .end((err, res) => {
       if(!err) {
         data = res.body

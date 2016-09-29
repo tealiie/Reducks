@@ -5,7 +5,6 @@ export default React.createClass({
     return(
       <div className="headerWrapper">
         <h1 className="text-center"> QuizzApp </h1>
-        <h1> QuizzApp </h1>
       </div>
     )
   }

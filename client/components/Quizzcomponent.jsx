@@ -5,12 +5,16 @@ import Answer from './Answer.jsx'
 import Newquestion from './Newquestion.jsx'
 
 export default React.createClass({
-  render(){
-    return(
+  render() {
+    return (
       <div className="quizzWrapper">
-        <Question/>
+        {this.props.trivia.map((trivia, i) => {
+          return <Question key={i} question={trivia.question}/>
+        })}
         <Timer/>
-        <Answer/>
+          {this.props.trivia.map((trivia, i) => {
+            return <Answer key={i} answer={trivia.correct_answer}/>
+          })}
         <Newquestion/>
       </div>
     )

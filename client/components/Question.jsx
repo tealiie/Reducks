@@ -4,8 +4,7 @@ export default React.createClass({
   render(){
     return(
       <div className="questionWrapper">
-        <p className="text-center"> Question </p>
-        <p> Question </p>
+        <p className="text-center"> {this.props.question} </p>
       </div>
     )
   }
