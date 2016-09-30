@@ -4,7 +4,7 @@ export default React.createClass({
   render(){
     return(
       <div className="timerWrapper text-center">
-        {this.props.countDown}
+        <h1> {this.props.countDown} </h1>
       </div>
     )
   }

@@ -3,8 +3,8 @@ import React from 'react'
 export default React.createClass({
   render(){
     return(
-      <div className="questionWrapper">
-        <p className="text-center"> {this.props.question} </p>
+      <div className="questionWrapper text-center">
+        <h2> {this.props.question} </h2>
       </div>
     )
   }

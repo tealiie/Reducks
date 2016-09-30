@@ -15,10 +15,10 @@ export default React.createClass({
 
     return (
       <div className="quizzWrapper">
+        <Newquestion newQ={this.props.newQ}/>
         <Question question={this.props.trivia.question} />
         <Timer countDown={this.props.countDown} />
         {answer}
-        <Newquestion newQ={this.props.newQ}/>
       </div>
 
     )

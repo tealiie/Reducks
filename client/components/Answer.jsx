@@ -7,9 +7,7 @@ export default React.createClass({
         <button
           className="btn btn-primary"
           onClick={this.props.showAnswer}> reveal answer </button>
-        <p className="text-center">
-          {this.props.answer}
-        </p>
+        <p> {this.props.answer} </p>
       </div>
     )
   }
