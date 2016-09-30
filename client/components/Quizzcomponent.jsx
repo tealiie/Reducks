@@ -17,7 +17,7 @@ export default React.createClass({
         <Question question={this.props.trivia.question} />
         <Timer/>
         {answer}
-        <Newquestion/>
+        <Newquestion newQ={this.props.newQ}/>
       </div>
     )
   }

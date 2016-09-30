@@ -41,7 +41,7 @@ export default React.createClass({
     return (
       <div className="mainWrapper">
         <Header/>
-        <Quizzcomponent trivia={this.state} showAnswer={this.showAnswer} />
+        <Quizzcomponent trivia={this.state} showAnswer={this.showAnswer} newQ={this.getQ}/>
       </div>
     )
   }
