@@ -3,6 +3,7 @@ import Question from './Question.jsx'
 import Timer from './Timer.jsx'
 import Answer from './Answer.jsx'
 import Newquestion from './Newquestion.jsx'
+import ReactCountdownClock from 'react-countdown-clock'
 
 export default React.createClass({
   render() {
@@ -15,10 +16,13 @@ export default React.createClass({
     return (
       <div className="quizzWrapper">
         <Question question={this.props.trivia.question} />
-        <Timer/>
+        <Timer countDown={this.props.countDown} />
         {answer}
         <Newquestion newQ={this.props.newQ}/>
       </div>
+
     )
+
+
   }
 })

@@ -8,7 +8,8 @@ export default React.createClass({
     return {
       question: "",
       answer: "",
-      showingAnswer: false
+      showingAnswer: false,
+      currentCount: 15
     }
   },
 
@@ -16,7 +17,23 @@ export default React.createClass({
     this.getQ()
   },
 
+  init () {
+    const intervalId = setInterval(this.timer, 1000)
+    this.setState({ intervalId: intervalId })
+  },
+
+  timer () {
+    this.setState({ currentCount: this.state.currentCount -1 })
+    if(this.state.currentCount == 0) {
+      clearInterval(this.state.intervalId)
+      this.showAnswer()
+    }
+  },
+
   getQ () {
+    clearInterval(this.state.intervalId)
+    const intervalId = setInterval(this.timer, 1000)
+    this.setState({ intervalId: intervalId, currentCount: 15 })
     quizapi.getQ(this.renderQ)
   },
 
@@ -26,6 +43,7 @@ export default React.createClass({
       answer: this.state.answer,
       showingAnswer: true
     })
+    clearInterval(this.state.intervalId)
   },
 
   renderQ(err, trivia) {
@@ -41,7 +59,7 @@ export default React.createClass({
     return (
       <div className="mainWrapper">
         <Header/>
-        <Quizzcomponent trivia={this.state} showAnswer={this.showAnswer} newQ={this.getQ}/>
+        <Quizzcomponent trivia={this.state} showAnswer={this.showAnswer} newQ={this.getQ} countDown={this.state.currentCount}/>
       </div>
     )
   }
