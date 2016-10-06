@@ -6,4 +6,4 @@ To start the development server with a watcher that refreshes your browser, run 
 
 Additional components should be placed in `client/components`.
 
-# QuizzApp
+# Reducks: A review of React and Redux
