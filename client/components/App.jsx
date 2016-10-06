@@ -2,15 +2,16 @@ import React from 'react'
 import Header from './Header.jsx'
 import Image from './Image.jsx'
 
-// export default React.createClass({
-//   getInitialState () {
-//     return {
-//       question: "",
-//       answer: "",
-//       showingAnswer: false,
-//       currentCount: 15
-//     }
-//   },
+export default React.createClass({
+  render() {
+    return (
+      <div>
+        <Header />
+        <Image />
+      </div>
+    )
+    }
+  })
 //
 //   componentDidMount () {
 //     this.getQ()

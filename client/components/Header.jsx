@@ -3,11 +3,9 @@ import React from 'react'
 export default React.createClass({
   render(){
     return(
-      <div className="header">
+      <div>
         <h2>Reducks!</h2>
       </div>
     )
   }
 })
-
-// Not actual code, testing github
