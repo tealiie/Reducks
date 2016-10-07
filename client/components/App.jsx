@@ -2,6 +2,7 @@ import React from 'react'
 
 import Header from './Header.jsx'
 import Image from './Image.jsx'
+import Video from './Video.jsx'
 import flickrapi from './flickrapi.js'
 
 export default React.createClass({
@@ -30,6 +31,7 @@ export default React.createClass({
       <div>
         <Header />
         <Image url={this.state.url} getImage={this.getImage} />
+        <Video />
       </div>
     )
   },
