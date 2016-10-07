@@ -1,66 +1,40 @@
 import React from 'react'
+
 import Header from './Header.jsx'
 import Image from './Image.jsx'
+import flickrapi from './flickrapi.js'
 
 export default React.createClass({
+  componentDidMount () {
+    this.getImage()
+  },
+
+  getInitialState () {
+    return {
+      url: ''
+    }
+  },
+
+  updateState (err, duckImage) {
+    this.setState({
+      url: this.createImageUrl(duckImage)
+    })
+  },
+
+  createImageUrl (duckImage) {
+    return 'https://farm'+duckImage.farm+'.staticflickr.com/'+duckImage.server+'/'+duckImage.id+'_'+duckImage.secret+'.jpg'
+  },
+
   render() {
     return (
       <div>
         <Header />
-        <Image />
+        <Image url={this.state.url} getImage={this.getImage} />
       </div>
     )
-    }
-  })
-//
-//   componentDidMount () {
-//     this.getQ()
-//   },
-//
-//   init () {
-//     const intervalId = setInterval(this.timer, 1000)
-//     this.setState({ intervalId: intervalId })
-//   },
-//
-//   timer () {
-//     this.setState({ currentCount: this.state.currentCount -1 })
-//     if(this.state.currentCount == 0) {
-//       clearInterval(this.state.intervalId)
-//       this.showAnswer()
-//     }
-//   },
-//
-//   getQ () {
-//     clearInterval(this.state.intervalId)
-//     const intervalId = setInterval(this.timer, 1000)
-//     this.setState({ intervalId: intervalId, currentCount: 15 })
-//     quizapi.getQ(this.renderQ)
-//   },
-//
-//   showAnswer () {
-//     this.setState({
-//       question: this.state.question,
-//       answer: this.state.answer,
-//       showingAnswer: true
-//     })
-//     clearInterval(this.state.intervalId)
-//   },
-//
-//   renderQ(err, trivia) {
-//     console.log(trivia)
-//     this.setState({
-//       question: trivia.question,
-//       answer: trivia.answer,
-//       showingAnswer: false
-//     })
-//   },
-//
-//   render() {
-//     return (
-//       <div className="mainWrapper">
-//         <Header/>
-//         <Quizzcomponent trivia={this.state} showAnswer={this.showAnswer} newQ={this.getQ} countDown={this.state.currentCount}/>
-//       </div>
-//     )
-//   }
-// })
+  },
+
+  getImage () {
+    flickrapi.getDucks(this.updateState)
+  }
+})

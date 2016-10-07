@@ -5,15 +5,25 @@ export default {
 }
 
 function getDucks (cb) {
-  let data = []
+  const random = getRandom()
   request
-  .get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=953c34a58be7b44ad0602c69e7e9965f&tags=ducks&sort=interestingness-desc&privacy_filter=1&accuracy=1&safe_search=1&content_type=1&per_page=1&format=json&nojsoncallback=1&api_sig=55adb4f9dfaf334a3f7666b3bb595498')
+  .get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=9aaad54f12061e267c3befbd9d2aaf52&tags=ducks&privacy_filter=1&accuracy=1&content_type=1&per_page=1&page='+random+'&format=json&nojsoncallback=1')
   .end((err, res) => {
     if(!err) {
-      data = res.body
-      cb(null, data)
+      const photo = res.body.photos.photo[0]
+      const duckImage = {
+        farm: photo.farm,
+        server: photo.server,
+        id: photo.id,
+        secret: photo.secret
+      }
+      cb(null, duckImage)
     } else {
       cb(err)
     }
   })
+}
+
+function getRandom() {
+  return Math.floor(Math.random() * 1000)
 }
