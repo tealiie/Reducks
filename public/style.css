@@ -1,4 +1,12 @@
+
+h2 {
+  color: purple;
+  font-family: 'Baloo Da';
+  font-size: 5em;
+}
+
 .image {
+  text-align: center;
   margin: auto;
   width: 50%;
   padding: 10px;
