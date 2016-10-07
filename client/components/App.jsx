@@ -23,7 +23,7 @@ export default React.createClass({
   },
 
   createImageUrl (duckImage) {
-    return 'https://farm'+duckImage.farm+'.staticflickr.com/'+duckImage.server+'/'+duckImage.id+'_'+duckImage.secret+'.jpg'
+    return 'https://farm'+duckImage.farm+'.staticflickr.com/'+duckImage.server+'/'+duckImage.id+'_'+duckImage.secret+'_c.jpg'
   },
 
   render() {
